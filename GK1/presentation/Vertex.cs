@@ -8,5 +8,11 @@ namespace GK1
 {
     class Vertex
     {
+        public (int X, int Y) Position { get; set; }
+
+        public Vertex()
+        {
+
+        }
     }
 }

@@ -4,9 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GK1.presentation
+namespace GK1
 {
-    class Painter
+    public static class Painter
     {
+        public static void DrawPolygon()
+        {
+
+        }
+        public static void DrawCircle()
+        {
+
+        }
+        public static void DrawVertex()
+        {
+
+        }
+        public static void DrawEdge()
+        {
+
+        }
     }
 }

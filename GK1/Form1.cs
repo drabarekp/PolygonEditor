@@ -12,6 +12,7 @@ namespace GK1
 {
     public partial class Form1 : Form
     {
+        public Pres
         public Form1()
         {
             InitializeComponent();

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GK1.presentation
-{
+namespace GK1
     class Relation
     {
     }

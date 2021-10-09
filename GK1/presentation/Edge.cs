@@ -8,5 +8,6 @@ namespace GK1
 {
     class Edge
     {
+        public (Vertex v1, Vertex v2) VertexPair { get; set; }
     }
 }
