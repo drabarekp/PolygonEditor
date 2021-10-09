@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class Presentation
+    public class Presentation
     {
         public List<Polygon> Polygons { get; set; }
         public List<Circle> Circles { get; set; }

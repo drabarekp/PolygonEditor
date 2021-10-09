@@ -31,14 +31,14 @@ namespace GK1
         {
             this.mainPicture = new System.Windows.Forms.PictureBox();
             this.buttonsLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAddPolygon = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonChangeCircleRadius = new System.Windows.Forms.Button();
+            this.buttonRemoveVertex = new System.Windows.Forms.Button();
+            this.buttonAddMiddleVertex = new System.Windows.Forms.Button();
             this.buttonAddCircle = new System.Windows.Forms.Button();
+            this.buttonAddPolygon = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.buttonAddMiddleVertex = new System.Windows.Forms.Button();
-            this.buttonRemoveVertex = new System.Windows.Forms.Button();
-            this.buttonChangeCircleRadius = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAddRelation = new System.Windows.Forms.Button();
             this.buttonRemoveRelation = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace GK1
             this.mainPicture.Size = new System.Drawing.Size(1000, 1000);
             this.mainPicture.TabIndex = 0;
             this.mainPicture.TabStop = false;
+            this.mainPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPicture_Paint);
             // 
             // buttonsLayoutPanel
             // 
@@ -83,16 +84,49 @@ namespace GK1
             this.buttonsLayoutPanel.Size = new System.Drawing.Size(250, 269);
             this.buttonsLayoutPanel.TabIndex = 1;
             // 
-            // buttonAddPolygon
+            // button6
             // 
-            this.buttonAddPolygon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddPolygon.Location = new System.Drawing.Point(145, 20);
-            this.buttonAddPolygon.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonAddPolygon.Name = "buttonAddPolygon";
-            this.buttonAddPolygon.Size = new System.Drawing.Size(85, 49);
-            this.buttonAddPolygon.TabIndex = 0;
-            this.buttonAddPolygon.Text = "button1";
-            this.buttonAddPolygon.UseVisualStyleBackColor = true;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Location = new System.Drawing.Point(145, 198);
+            this.button6.Margin = new System.Windows.Forms.Padding(20);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(85, 51);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "button1";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonChangeCircleRadius
+            // 
+            this.buttonChangeCircleRadius.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonChangeCircleRadius.Location = new System.Drawing.Point(20, 198);
+            this.buttonChangeCircleRadius.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonChangeCircleRadius.Name = "buttonChangeCircleRadius";
+            this.buttonChangeCircleRadius.Size = new System.Drawing.Size(85, 51);
+            this.buttonChangeCircleRadius.TabIndex = 4;
+            this.buttonChangeCircleRadius.Text = "button1";
+            this.buttonChangeCircleRadius.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemoveVertex
+            // 
+            this.buttonRemoveVertex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonRemoveVertex.Location = new System.Drawing.Point(145, 109);
+            this.buttonRemoveVertex.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonRemoveVertex.Name = "buttonRemoveVertex";
+            this.buttonRemoveVertex.Size = new System.Drawing.Size(85, 49);
+            this.buttonRemoveVertex.TabIndex = 3;
+            this.buttonRemoveVertex.Text = "button1";
+            this.buttonRemoveVertex.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddMiddleVertex
+            // 
+            this.buttonAddMiddleVertex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAddMiddleVertex.Location = new System.Drawing.Point(20, 109);
+            this.buttonAddMiddleVertex.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonAddMiddleVertex.Name = "buttonAddMiddleVertex";
+            this.buttonAddMiddleVertex.Size = new System.Drawing.Size(85, 49);
+            this.buttonAddMiddleVertex.TabIndex = 2;
+            this.buttonAddMiddleVertex.Text = "button1";
+            this.buttonAddMiddleVertex.UseVisualStyleBackColor = true;
             // 
             // buttonAddCircle
             // 
@@ -104,6 +138,17 @@ namespace GK1
             this.buttonAddCircle.TabIndex = 1;
             this.buttonAddCircle.Text = "button1";
             this.buttonAddCircle.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddPolygon
+            // 
+            this.buttonAddPolygon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAddPolygon.Location = new System.Drawing.Point(145, 20);
+            this.buttonAddPolygon.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonAddPolygon.Name = "buttonAddPolygon";
+            this.buttonAddPolygon.Size = new System.Drawing.Size(85, 49);
+            this.buttonAddPolygon.TabIndex = 0;
+            this.buttonAddPolygon.Text = "button1";
+            this.buttonAddPolygon.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -126,50 +171,6 @@ namespace GK1
             this.button3.TabIndex = 2;
             this.button3.Text = "button1";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddMiddleVertex
-            // 
-            this.buttonAddMiddleVertex.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddMiddleVertex.Location = new System.Drawing.Point(20, 109);
-            this.buttonAddMiddleVertex.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonAddMiddleVertex.Name = "buttonAddMiddleVertex";
-            this.buttonAddMiddleVertex.Size = new System.Drawing.Size(85, 49);
-            this.buttonAddMiddleVertex.TabIndex = 2;
-            this.buttonAddMiddleVertex.Text = "button1";
-            this.buttonAddMiddleVertex.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveVertex
-            // 
-            this.buttonRemoveVertex.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonRemoveVertex.Location = new System.Drawing.Point(145, 109);
-            this.buttonRemoveVertex.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonRemoveVertex.Name = "buttonRemoveVertex";
-            this.buttonRemoveVertex.Size = new System.Drawing.Size(85, 49);
-            this.buttonRemoveVertex.TabIndex = 3;
-            this.buttonRemoveVertex.Text = "button1";
-            this.buttonRemoveVertex.UseVisualStyleBackColor = true;
-            // 
-            // buttonChangeCircleRadius
-            // 
-            this.buttonChangeCircleRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonChangeCircleRadius.Location = new System.Drawing.Point(20, 198);
-            this.buttonChangeCircleRadius.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonChangeCircleRadius.Name = "buttonChangeCircleRadius";
-            this.buttonChangeCircleRadius.Size = new System.Drawing.Size(85, 51);
-            this.buttonChangeCircleRadius.TabIndex = 4;
-            this.buttonChangeCircleRadius.Text = "button1";
-            this.buttonChangeCircleRadius.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(145, 198);
-            this.button6.Margin = new System.Windows.Forms.Padding(20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(85, 51);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "button1";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 

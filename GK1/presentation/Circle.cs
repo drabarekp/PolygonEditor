@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class Circle
+    public class Circle
     {
         public (int X, int Y) Center { get; set; }
         public double Radius { get; set; }

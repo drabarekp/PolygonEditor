@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class Polygon
+    public class Polygon
     {
+        public List<Vertex> Vertices { get; set; }
+        public List<Edge> Edges { get; set; }
         public Polygon()
         {
             

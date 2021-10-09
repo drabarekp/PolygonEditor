@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GK1
-{
-    public class Edge
+namespace GK1 { 
+    public abstract class Relation
     {
-        public (Vertex v1, Vertex v2) VertexPair { get; set; }
     }
 }

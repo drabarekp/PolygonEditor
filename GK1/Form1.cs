@@ -12,11 +12,19 @@ namespace GK1
 {
     public partial class Form1 : Form
     {
-        public Pres
+        public Presentation Presentation { get; set; }
+        private PresentationPainter painter;
+        
         public Form1()
         {
             InitializeComponent();
+            painter = new PresentationPainter();
         }
 
+        private void mainPicture_Paint(object sender, PaintEventArgs e)
+        {
+            var graphics = e.Graphics;
+            painter.DrawPresentation(Presentation, graphics);
+        }
     }
 }

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GK1
-    class Relation
+{
+    class EdgeEdgeRelation : Relation
     {
     }
 }

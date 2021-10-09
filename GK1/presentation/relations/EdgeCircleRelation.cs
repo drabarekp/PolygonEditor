@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    public class Vertex
+    class EdgeCircleRelation : Relation
     {
-        public (int X, int Y) Position { get; set; }
-
-        public Vertex()
-        {
-
-        }
     }
 }
