@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    public class Vertex
+    public class Edge : ILine
     {
-        public (int X, int Y) Position { get; set; }
+        public (IPoint p1, IPoint p2) EndsPair { get; set; }
 
-        public Vertex()
+        public Edge(IPoint p1, IPoint p2)
         {
-
+            this.EndsPair = (p1, p2);
         }
     }
 }

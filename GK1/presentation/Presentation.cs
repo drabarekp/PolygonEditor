@@ -10,10 +10,22 @@ namespace GK1
     {
         public List<Polygon> Polygons { get; set; }
         public List<Circle> Circles { get; set; }
+        public (int X, int Y) Size { get; set; }
 
-        public Presentation()
+        public Presentation(string str)
         {
+            Polygons = new List<Polygon>();
+            Circles = new List<Circle>();
+            Size = (1000, 1000);
 
+            if(str == "test")
+            {
+                Polygons.Add(new Polygon(new Vertex[] {
+                    new Vertex(100, 120),
+                    new Vertex(400, 300),
+                    new Vertex(600, 400)
+                }));
+            }
         }
     }
 }

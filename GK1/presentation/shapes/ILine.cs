@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    public class Edge
+    interface ILine
     {
-        public (Vertex v1, Vertex v2) VertexPair { get; set; }
+        public (IPoint p1, IPoint p2) EndsPair { get; set; }
     }
 }

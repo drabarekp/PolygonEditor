@@ -61,6 +61,10 @@ namespace GK1
             this.mainPicture.TabIndex = 0;
             this.mainPicture.TabStop = false;
             this.mainPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPicture_Paint);
+            this.mainPicture.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseClick_1);
+            this.mainPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseDown);
+            this.mainPicture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseMove);
+            this.mainPicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseUp);
             // 
             // buttonsLayoutPanel
             // 
@@ -125,8 +129,9 @@ namespace GK1
             this.buttonAddMiddleVertex.Name = "buttonAddMiddleVertex";
             this.buttonAddMiddleVertex.Size = new System.Drawing.Size(85, 49);
             this.buttonAddMiddleVertex.TabIndex = 2;
-            this.buttonAddMiddleVertex.Text = "button1";
+            this.buttonAddMiddleVertex.Text = "Add Middle Vertex";
             this.buttonAddMiddleVertex.UseVisualStyleBackColor = true;
+            this.buttonAddMiddleVertex.Click += new System.EventHandler(this.buttonAddMiddleVertex_Click);
             // 
             // buttonAddCircle
             // 
@@ -136,8 +141,9 @@ namespace GK1
             this.buttonAddCircle.Name = "buttonAddCircle";
             this.buttonAddCircle.Size = new System.Drawing.Size(85, 49);
             this.buttonAddCircle.TabIndex = 1;
-            this.buttonAddCircle.Text = "button1";
+            this.buttonAddCircle.Text = "Add Circle";
             this.buttonAddCircle.UseVisualStyleBackColor = true;
+            this.buttonAddCircle.Click += new System.EventHandler(this.buttonAddCircle_Click);
             // 
             // buttonAddPolygon
             // 
@@ -147,8 +153,9 @@ namespace GK1
             this.buttonAddPolygon.Name = "buttonAddPolygon";
             this.buttonAddPolygon.Size = new System.Drawing.Size(85, 49);
             this.buttonAddPolygon.TabIndex = 0;
-            this.buttonAddPolygon.Text = "button1";
+            this.buttonAddPolygon.Text = "Add Polygon";
             this.buttonAddPolygon.UseVisualStyleBackColor = true;
+            this.buttonAddPolygon.Click += new System.EventHandler(this.buttonAddPolygon_Click);
             // 
             // button2
             // 
