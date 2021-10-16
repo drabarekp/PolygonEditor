@@ -9,6 +9,8 @@ namespace GK1
 {
     public class PresentationPainter
     {
+
+        Color circleCentercolor = Color.DarkRed;
         Color pointColor = Color.Blue;
         Color lineColor = Color.Black;
         int sizeOfPoint = 3;
@@ -26,18 +28,23 @@ namespace GK1
         }
         private void DrawPolygon(Polygon p, Graphics g, Bitmap b)
         {
-            foreach (var ver in p.Vertices) DrawVertex(ver, g);
-            foreach (var edge in p.Edges) DrawLine(edge, b);
+            foreach (var ver in p.Vertices)
+            {
+                DrawVertex(ver, g);
+                DrawLine(ver.AdjacentEdges.prev, b);
+            }
+            
         }
         private void DrawCircle(Circle c, Graphics g)
         {
             g.DrawEllipse(new Pen(new SolidBrush(lineColor)), new Rectangle(c.Center.X - c.Radius, c.Center.Y - c.Radius, 2*c.Radius, 2*c.Radius));
+            g.FillEllipse(new SolidBrush(circleCentercolor), new Rectangle(c.Center.X - sizeOfPoint, c.Center.Y - sizeOfPoint, 2 * sizeOfPoint, 2 * sizeOfPoint));
         }
         private void DrawVertex(IPoint v, Graphics g)
         {
             g.FillEllipse(new SolidBrush(pointColor), new Rectangle(v.Position.X - sizeOfPoint, v.Position.Y - sizeOfPoint, 2 * sizeOfPoint, 2 * sizeOfPoint));
         }
-        private void DrawLine(ILine e, Bitmap b)
+        private void DrawLine(Edge e, Bitmap b)
         {
             int x = e.EndsPair.p1.Position.X;
             int y = e.EndsPair.p1.Position.Y;

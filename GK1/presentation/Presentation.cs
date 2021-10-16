@@ -20,11 +20,11 @@ namespace GK1
 
             if(str == "test")
             {
-                Polygons.Add(new Polygon(new Vertex[] {
+                /*Polygons.Add(new Polygon(new Vertex[] {
                     new Vertex(100, 120),
                     new Vertex(400, 300),
                     new Vertex(600, 400)
-                }));
+                }));*/
             }
         }
     }

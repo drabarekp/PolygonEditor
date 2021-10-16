@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class PolygonAdder
+    class PolygonAdder : IPictureActionExecuter
     {
         bool isAdding;
         Polygon beingAdded;
@@ -19,6 +19,10 @@ namespace GK1
             }
         }
 
+        public bool RespondsToMouseUp { get => false; }
+
+        public bool RespondsToMouseMove { get => false; }
+
         public PolygonAdder(Presentation p)
         {
             presentation = p;
@@ -29,6 +33,15 @@ namespace GK1
         public void Clicked(int X, int Y)
         {
             AddVertexToPolygon(X, Y);
+        }
+        public void MouseUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MouseMove(int X, int Y)
+        {
+            throw new NotImplementedException();
         }
 
         public void AddPolygonButtonClicked()

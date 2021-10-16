@@ -107,8 +107,9 @@ namespace GK1
             this.buttonChangeCircleRadius.Name = "buttonChangeCircleRadius";
             this.buttonChangeCircleRadius.Size = new System.Drawing.Size(85, 51);
             this.buttonChangeCircleRadius.TabIndex = 4;
-            this.buttonChangeCircleRadius.Text = "button1";
+            this.buttonChangeCircleRadius.Text = "Change Radius";
             this.buttonChangeCircleRadius.UseVisualStyleBackColor = true;
+            this.buttonChangeCircleRadius.Click += new System.EventHandler(this.buttonChangeCircleRadius_Click);
             // 
             // buttonRemoveVertex
             // 
@@ -118,8 +119,9 @@ namespace GK1
             this.buttonRemoveVertex.Name = "buttonRemoveVertex";
             this.buttonRemoveVertex.Size = new System.Drawing.Size(85, 49);
             this.buttonRemoveVertex.TabIndex = 3;
-            this.buttonRemoveVertex.Text = "button1";
+            this.buttonRemoveVertex.Text = "Remove Vertex";
             this.buttonRemoveVertex.UseVisualStyleBackColor = true;
+            this.buttonRemoveVertex.Click += new System.EventHandler(this.buttonRemoveVertex_Click);
             // 
             // buttonAddMiddleVertex
             // 

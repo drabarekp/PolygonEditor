@@ -13,6 +13,10 @@ namespace GK1
         private PolygonAdder polygonAdder;
         private PolygonModifier polygonModifier;
         private MiddleVertexCreator middleVertexCreator;
+        private VertexRemover vertexRemover;
+        private RadiusChanger radiusChanger;
+
+        private List<IPictureActionExecuter> listeners;
 
         public PresentationManager(Presentation presentation)
         {
@@ -21,40 +25,50 @@ namespace GK1
             polygonAdder = new PolygonAdder(presentation);
             polygonModifier = new PolygonModifier(presentation);
             middleVertexCreator = new MiddleVertexCreator(presentation);
- 
+            vertexRemover = new VertexRemover(presentation);
+            radiusChanger = new RadiusChanger(presentation);
+            
+            listeners = new List<IPictureActionExecuter>();
+            listeners.Add(circleAdder);
+            listeners.Add(polygonAdder);
+            listeners.Add(polygonModifier);
+            listeners.Add(middleVertexCreator);
+            listeners.Add(vertexRemover);
+            listeners.Add(radiusChanger);
+
         }
 
         // in reality down
         public void Clicked(int X, int Y)
         {
-            if (polygonAdder.RespondsToClick)
+            foreach(var listener in listeners)
             {
-                polygonAdder.Clicked(X, Y);
-            }
-            if (circleAdder.RespondsToClick)
-            {
-                circleAdder.Clicked(X, Y);
-            }
-            if (polygonModifier.RespondsToClick)
-            {
-                polygonModifier.Clicked(X, Y);
-            }
-            if (middleVertexCreator.RespondsToClick)
-            {
-                middleVertexCreator.Clicked(X, Y);
+                if (listener.RespondsToClick)
+                {
+                    listener.Clicked(X, Y);
+                }
             }
         }
         
         public void MouseMove(int X, int Y)
         {
-            if(polygonModifier.RespondsToMouseMove)
-                polygonModifier.MouseMove(X, Y);
-            if (circleAdder.RespondsToMouseMove)
-                circleAdder.MouseMove(X, Y);
+            foreach (var listener in listeners)
+            {
+                if (listener.RespondsToMouseMove)
+                {
+                    listener.MouseMove(X, Y);
+                }
+            }
         }
         public void MouseUp()
         {
-            polygonModifier.MouseUp();
+            foreach (var listener in listeners)
+            {
+                if (listener.RespondsToMouseUp)
+                {
+                    listener.MouseUp();
+                }
+            }
         }
 
         public void AddPolygonButtonClicked()
@@ -68,6 +82,14 @@ namespace GK1
         public void AddMiddleVertexPointClicked()
         {
             middleVertexCreator.AddMiddleVertexClicked();
+        }
+        public void RemoveVertexButtonClicked()
+        {
+            vertexRemover.ButtonClicked();
+        }
+        public void ChangeRadiusClicked()
+        {
+            radiusChanger.ButtonClicked();
         }
     }
 }

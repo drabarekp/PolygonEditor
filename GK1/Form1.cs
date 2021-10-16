@@ -71,5 +71,15 @@ namespace GK1
         {
             manager.AddMiddleVertexPointClicked();
         }
+
+        private void buttonRemoveVertex_Click(object sender, EventArgs e)
+        {
+            manager.RemoveVertexButtonClicked();
+        }
+
+        private void buttonChangeCircleRadius_Click(object sender, EventArgs e)
+        {
+            manager.ChangeRadiusClicked();
+        }
     }
 }

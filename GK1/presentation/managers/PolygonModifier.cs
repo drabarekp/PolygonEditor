@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class PolygonModifier
+    class PolygonModifier : IPictureActionExecuter
     {
         Vertex beingMoved;
         bool isMoving;

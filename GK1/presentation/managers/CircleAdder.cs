@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    public class CircleAdder
+    public class CircleAdder :IPictureActionExecuter
     {
         private bool isAddingCircle;
         private bool wasCenterSet;
@@ -27,6 +27,12 @@ namespace GK1
                 return isAddingCircle && wasCenterSet;
             }
         }
+        public void MouseUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RespondsToMouseUp { get => false; }
 
         public CircleAdder(Presentation pres)
         {
@@ -74,5 +80,6 @@ namespace GK1
             wasCenterSet = false;
             beingAdded = null;
         }
+
     }
 }

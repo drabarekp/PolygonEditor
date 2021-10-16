@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace GK1 
 { 
-    class MiddleVertexCreator
+    class MiddleVertexCreator : IPictureActionExecuter
     {
         public bool RespondsToClick { get; set; }
+
+        public bool RespondsToMouseUp {get => false;} 
+
+        public bool RespondsToMouseMove { get => false; }
+
         Presentation presentation;
 
         public MiddleVertexCreator(Presentation p)
@@ -52,12 +57,19 @@ namespace GK1
                 array[i] = p.Vertices[i - 1];
             }
 
+            Vertex next = prev.AdjacentEdges.next.EndsPair.p2;
+            var ePrev = new Edge(prev, toAdd);
+            var eNext = new Edge(toAdd, next);
+
+            prev.AdjacentEdges = (prev.AdjacentEdges.prev, ePrev);
+            toAdd.AdjacentEdges = (ePrev, eNext);
+            next.AdjacentEdges = (eNext, next.AdjacentEdges.next);
             p.Vertices = array.ToList();
         }
 
         private void BreakEdge(Polygon p, Edge toBreak, Vertex breakingPoint)
         {
-            int i = 0;
+            /*int i = 0;
             Edge[] array = new Edge[p.Edges.Count + 1];
             for(; i < p.Edges.Count;i++)
             {
@@ -81,7 +93,7 @@ namespace GK1
                 array[i] = p.Edges[i - 1];
             }
 
-            p.Edges = array.ToList();
+            p.Edges = array.ToList();*/
         }
 
         private (Edge edge, Polygon polygon) WasEdgeClicked(int X, int Y)
@@ -92,8 +104,11 @@ namespace GK1
 
             foreach (var p in presentation.Polygons)
             {
-                foreach(var e in p.Edges)
+                foreach(var v in p.Vertices)
                 {
+
+                    var e = v.AdjacentEdges.prev;
+
                     int x1 = e.EndsPair.p1.Position.X;
                     int y1 = e.EndsPair.p1.Position.Y;
                     int x2 = e.EndsPair.p2.Position.X;
@@ -116,6 +131,16 @@ namespace GK1
                 }
             }
             return (null, null);
+        }
+
+        public void MouseUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MouseMove(int X, int Y)
+        {
+            throw new NotImplementedException();
         }
     }
 }

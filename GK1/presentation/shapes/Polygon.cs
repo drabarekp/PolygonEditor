@@ -9,39 +9,22 @@ namespace GK1
     public class Polygon
     {
         public List<Vertex> Vertices { get; set; }
-        public List<Edge> Edges { get; set; }
+        //public List<Edge> Edges { get; set; }
         public Polygon()
         {
             Vertices = new List<Vertex>();
-            Edges = new List<Edge>();
         }
-        public Polygon(IEnumerable<Vertex> vertices)
-        {
-            Vertices = vertices.ToList();
-            Edges = new List<Edge>();
-
-            Vertex v1 = null, v2 = null;
-
-            
-            foreach(var v in vertices)
-            {
-                v1 = v2;
-                v2 = v;
-                if (v1 != null)
-                    Edges.Add(new Edge(v1, v2));
-            }
-            Edges.Add(new Edge(v2, vertices.First()));
-        }
-
         public void AddVertex(Vertex v)
         {
             Vertices.Add(v);
-            if(Edges.Count>0) Edges.RemoveAt(Edges.Count - 1);
+            var eNext = new Edge(v, Vertices[0]);
             if (Vertices.Count > 1)
             {
-                Edges.Add(new Edge(Vertices[^2], Vertices[^1]));
-                Edges.Add(new Edge(Vertices[^1], Vertices[0]));
+                var ePrev = new Edge(Vertices[^2], v);
+                Vertices[^2].AdjacentEdges = (Vertices[^2].AdjacentEdges.prev, ePrev);
+                v.AdjacentEdges = (ePrev, eNext);
             }
+            Vertices[0].AdjacentEdges = (eNext, Vertices[0].AdjacentEdges.next);
         }
         public Vertex VertexClose(int X, int Y)
         {
