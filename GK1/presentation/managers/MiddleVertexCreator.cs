@@ -32,7 +32,6 @@ namespace GK1
 
             var vertex = new Vertex((edge.EndsPair.p1.Position.X + edge.EndsPair.p2.Position.X) / 2, (edge.EndsPair.p1.Position.Y + edge.EndsPair.p2.Position.Y) / 2);
             AddVertexToPolygon(polygon, (Vertex)edge.EndsPair.p1, vertex);
-            BreakEdge(polygon, edge, vertex);
             RespondsToClick = false;
         }
 
@@ -65,35 +64,6 @@ namespace GK1
             toAdd.AdjacentEdges = (ePrev, eNext);
             next.AdjacentEdges = (eNext, next.AdjacentEdges.next);
             p.Vertices = array.ToList();
-        }
-
-        private void BreakEdge(Polygon p, Edge toBreak, Vertex breakingPoint)
-        {
-            /*int i = 0;
-            Edge[] array = new Edge[p.Edges.Count + 1];
-            for(; i < p.Edges.Count;i++)
-            {
-                if(p.Edges[i] != toBreak)
-                {
-                    array[i] = p.Edges[i];
-                }
-                else { break; }
-            }
-
-            var vPrev = toBreak.EndsPair.p1;
-            var vNext = toBreak.EndsPair.p2;
-            var e1 = new Edge(vPrev, breakingPoint);
-            var e2 = new Edge(breakingPoint, vNext);
-
-            array[i++] = e1;
-            array[i++] = e2;
-
-            for (; i < p.Edges.Count + 1; i++)
-            {
-                array[i] = p.Edges[i - 1];
-            }
-
-            p.Edges = array.ToList();*/
         }
 
         private (Edge edge, Polygon polygon) WasEdgeClicked(int X, int Y)

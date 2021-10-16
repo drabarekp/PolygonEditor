@@ -31,7 +31,7 @@ namespace GK1
         {
             this.mainPicture = new System.Windows.Forms.PictureBox();
             this.buttonsLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.moveShapebutton = new System.Windows.Forms.Button();
             this.buttonChangeCircleRadius = new System.Windows.Forms.Button();
             this.buttonRemoveVertex = new System.Windows.Forms.Button();
             this.buttonAddMiddleVertex = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@ namespace GK1
             this.buttonsLayoutPanel.ColumnCount = 2;
             this.buttonsLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.buttonsLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.buttonsLayoutPanel.Controls.Add(this.button6, 1, 2);
+            this.buttonsLayoutPanel.Controls.Add(this.moveShapebutton, 1, 2);
             this.buttonsLayoutPanel.Controls.Add(this.buttonChangeCircleRadius, 0, 2);
             this.buttonsLayoutPanel.Controls.Add(this.buttonRemoveVertex, 1, 1);
             this.buttonsLayoutPanel.Controls.Add(this.buttonAddMiddleVertex, 0, 1);
@@ -88,16 +88,17 @@ namespace GK1
             this.buttonsLayoutPanel.Size = new System.Drawing.Size(250, 269);
             this.buttonsLayoutPanel.TabIndex = 1;
             // 
-            // button6
+            // moveShapebutton
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(145, 198);
-            this.button6.Margin = new System.Windows.Forms.Padding(20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(85, 51);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "button1";
-            this.button6.UseVisualStyleBackColor = true;
+            this.moveShapebutton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.moveShapebutton.Location = new System.Drawing.Point(145, 198);
+            this.moveShapebutton.Margin = new System.Windows.Forms.Padding(20);
+            this.moveShapebutton.Name = "moveShapebutton";
+            this.moveShapebutton.Size = new System.Drawing.Size(85, 51);
+            this.moveShapebutton.TabIndex = 5;
+            this.moveShapebutton.Text = "Move Shape";
+            this.moveShapebutton.UseVisualStyleBackColor = true;
+            this.moveShapebutton.Click += new System.EventHandler(this.moveShapebutton_Click);
             // 
             // buttonChangeCircleRadius
             // 
@@ -308,7 +309,7 @@ namespace GK1
 
         private System.Windows.Forms.PictureBox mainPicture;
         private System.Windows.Forms.TableLayoutPanel buttonsLayoutPanel;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button moveShapebutton;
         private System.Windows.Forms.Button buttonChangeCircleRadius;
         private System.Windows.Forms.Button buttonRemoveVertex;
         private System.Windows.Forms.Button buttonAddMiddleVertex;

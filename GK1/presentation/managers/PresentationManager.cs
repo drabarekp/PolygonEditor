@@ -15,6 +15,7 @@ namespace GK1
         private MiddleVertexCreator middleVertexCreator;
         private VertexRemover vertexRemover;
         private RadiusChanger radiusChanger;
+        private ShapeMover shapeMover;
 
         private List<IPictureActionExecuter> listeners;
 
@@ -27,14 +28,17 @@ namespace GK1
             middleVertexCreator = new MiddleVertexCreator(presentation);
             vertexRemover = new VertexRemover(presentation);
             radiusChanger = new RadiusChanger(presentation);
+            shapeMover = new ShapeMover(presentation);
             
             listeners = new List<IPictureActionExecuter>();
+            listeners.Add(shapeMover);
             listeners.Add(circleAdder);
             listeners.Add(polygonAdder);
             listeners.Add(polygonModifier);
             listeners.Add(middleVertexCreator);
             listeners.Add(vertexRemover);
             listeners.Add(radiusChanger);
+            
 
         }
 
@@ -90,6 +94,10 @@ namespace GK1
         public void ChangeRadiusClicked()
         {
             radiusChanger.ButtonClicked();
+        }
+        public void MoveShapeButtonClicked()
+        {
+            shapeMover.ButtonClicked();
         }
     }
 }

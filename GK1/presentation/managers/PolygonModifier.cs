@@ -9,6 +9,7 @@ namespace GK1
     class PolygonModifier : IPictureActionExecuter
     {
         Vertex beingMoved;
+        EdgeMover edgeMover;
         bool isMoving;
         Presentation presentation;
         public bool RespondsToClick
@@ -40,13 +41,32 @@ namespace GK1
         }
         public void Clicked(int X, int Y)
         {
-            beingMoved = VertexClicked(X, Y);
-            if (beingMoved == null) return;
-            isMoving = true;
+            (beingMoved, _) = presentation.PolygonClose(X, Y);
+            if (beingMoved != null)
+            {
+                isMoving = true;
+                return;
+            }
+
+            foreach (var p in presentation.Polygons)
+            {
+                var (edge, polygon) = p.WasEdgeClose(X, Y);
+                if (edge != null)
+                {
+                    edgeMover = new EdgeMover(edge, X, Y);
+                    isMoving = true;
+                    return;
+                }
+            }
         }
         public void MouseMove(int X, int Y)
         {
-            MoveVertex(X, Y);
+            if(beingMoved != null)
+                MoveVertex(X, Y);
+            else
+            {
+                edgeMover.MoveTo(X, Y);
+            }
         }
         public void MouseUp()
         {
@@ -62,16 +82,7 @@ namespace GK1
         {
             isMoving = false;
             beingMoved = null;
+            edgeMover = null;
         }
-        private Vertex VertexClicked(int X, int Y)
-        {
-            foreach (var p in presentation.Polygons)
-            {
-                var v = p.VertexClose(X, Y);
-                if (v != null) return v;
-            }
-            return null;
-        }
-
     }
 }

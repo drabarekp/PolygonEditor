@@ -17,7 +17,7 @@ namespace GK1
 
         public void Clicked(int X, int Y)
         {
-            var (vertex, polygon)  = VertexClicked(X, Y);
+            var (vertex, polygon)  = presentation.PolygonClose(X, Y);
             if (vertex == null) return;
             RemoveVertex(vertex, polygon);
             RespondsToClick = false;
@@ -42,7 +42,7 @@ namespace GK1
             RespondsToClick = true;
         }
 
-        private (Vertex, Polygon) VertexClicked(int X, int Y)
+        /*private (Vertex, Polygon) VertexClicked(int X, int Y)
         {
             foreach (var p in presentation.Polygons)
             {
@@ -50,7 +50,7 @@ namespace GK1
                 if (v != null) return (v, p);
             }
             return (null, null);
-        }
+        }*/
         private void RemoveVertex(Vertex v, Polygon p)
         {
             int indexOfRemoved = p.Vertices.FindIndex(0, p.Vertices.Count, (arg) => { if (arg == v) return true; return false; });

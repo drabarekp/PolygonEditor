@@ -81,5 +81,10 @@ namespace GK1
         {
             manager.ChangeRadiusClicked();
         }
+
+        private void moveShapebutton_Click(object sender, EventArgs e)
+        {
+            manager.MoveShapeButtonClicked();
+        }
     }
 }

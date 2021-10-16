@@ -27,5 +27,26 @@ namespace GK1
                 }));*/
             }
         }
+        public (Vertex, Polygon) PolygonClose(int X, int Y)
+        {
+            foreach (var p in Polygons)
+            {
+                var v = p.VertexClose(X, Y);
+                if (v != null) return (v, p);
+            }
+            return (null, null);
+        }
+        public Circle CircleClose(int X, int Y)
+        {
+            const int close = 10;
+            foreach (var c in Circles)
+            {
+                if (c.DistanceFromCenter(X, Y) < close)
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
     }
 }
