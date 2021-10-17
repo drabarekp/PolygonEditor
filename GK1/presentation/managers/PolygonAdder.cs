@@ -44,7 +44,7 @@ namespace GK1
             throw new NotImplementedException();
         }
 
-        public void AddPolygonButtonClicked()
+        public void ButtonClicked()
         {
             if (isAdding)
             {

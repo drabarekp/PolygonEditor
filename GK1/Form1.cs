@@ -31,7 +31,6 @@ namespace GK1
             var bitmap = new Bitmap(Presentation.Size.X, Presentation.Size.Y);
             var graphics = Graphics.FromImage(bitmap);
             painter.DrawPresentation(Presentation, graphics, bitmap);
-            //...
             e.Graphics.DrawImage(bitmap, new Point(0, 0));
         }
 
@@ -85,6 +84,16 @@ namespace GK1
         private void moveShapebutton_Click(object sender, EventArgs e)
         {
             manager.MoveShapeButtonClicked();
+        }
+
+        private void buttonRelSetEdgeLength_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEndSpecial_Click(object sender, EventArgs e)
+        {
+            manager.EndSpecialAction();
         }
     }
 }

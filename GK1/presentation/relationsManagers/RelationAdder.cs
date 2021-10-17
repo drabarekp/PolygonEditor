@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GK1.presentation.relationsManagers
+{
+    class RelationAdder
+    {
+        Relation relation;
+
+        public void Add()
+        {
+
+        }
+    }
+}

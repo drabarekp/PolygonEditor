@@ -5,9 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GK1
-{ 
-    public abstract class Relation
+{
+    class RelationAdder
     {
-        public abstract void EnforceRelation(Vertex moved, (int X, int Y) newPosition);
+        Relation relation;
+
+        public void Add()
+        {
+
+        }
     }
 }

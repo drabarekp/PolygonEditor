@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class EdgeEdgeRelation : Relation
+    abstract class EdgeEdgeRelation : Relation
     {
     }
 }

@@ -9,95 +9,93 @@ namespace GK1
     class PresentationManager
     {
         private Presentation presentation;
-        private CircleAdder circleAdder;
-        private PolygonAdder polygonAdder;
+
+        private IPictureActionExecuter activeManager;
         private PolygonModifier polygonModifier;
-        private MiddleVertexCreator middleVertexCreator;
-        private VertexRemover vertexRemover;
-        private RadiusChanger radiusChanger;
-        private ShapeMover shapeMover;
-
-        private List<IPictureActionExecuter> listeners;
-
         public PresentationManager(Presentation presentation)
         {
             this.presentation = presentation;
-            circleAdder = new CircleAdder(presentation);
-            polygonAdder = new PolygonAdder(presentation);
             polygonModifier = new PolygonModifier(presentation);
-            middleVertexCreator = new MiddleVertexCreator(presentation);
-            vertexRemover = new VertexRemover(presentation);
-            radiusChanger = new RadiusChanger(presentation);
-            shapeMover = new ShapeMover(presentation);
-            
-            listeners = new List<IPictureActionExecuter>();
-            listeners.Add(shapeMover);
-            listeners.Add(circleAdder);
-            listeners.Add(polygonAdder);
-            listeners.Add(polygonModifier);
-            listeners.Add(middleVertexCreator);
-            listeners.Add(vertexRemover);
-            listeners.Add(radiusChanger);
-            
-
+            activeManager = null;
         }
 
         // in reality down
         public void Clicked(int X, int Y)
         {
-            foreach(var listener in listeners)
+            if(activeManager == null || !activeManager.RespondsToClick)
             {
-                if (listener.RespondsToClick)
-                {
-                    listener.Clicked(X, Y);
-                }
+                if (polygonModifier.RespondsToClick)
+                    polygonModifier.Clicked(X, Y);
+            }
+            else
+            {
+                if (activeManager.RespondsToClick)
+                    activeManager.Clicked(X, Y);
             }
         }
         
         public void MouseMove(int X, int Y)
         {
-            foreach (var listener in listeners)
+            if (activeManager == null || !activeManager.RespondsToMouseMove)
             {
-                if (listener.RespondsToMouseMove)
-                {
-                    listener.MouseMove(X, Y);
-                }
+                if (polygonModifier.RespondsToMouseMove)
+                    polygonModifier.MouseMove(X, Y);
             }
+            else
+            {
+                if (activeManager.RespondsToMouseMove)
+                    activeManager.MouseMove(X, Y);
+            }
+
         }
         public void MouseUp()
         {
-            foreach (var listener in listeners)
-            {
-                if (listener.RespondsToMouseUp)
+            if (activeManager == null || !activeManager.RespondsToMouseUp)
                 {
-                    listener.MouseUp();
+                    if (polygonModifier.RespondsToMouseUp)
+                        polygonModifier.MouseUp();
                 }
+            else
+            {
+                if (activeManager.RespondsToMouseUp)
+                    activeManager.MouseUp();
             }
         }
 
         public void AddPolygonButtonClicked()
         {
-            polygonAdder.AddPolygonButtonClicked();
+            activeManager = new PolygonAdder(presentation);
+            activeManager.ButtonClicked();
+            
         }
         public void AddCircleButtonClicked()
         {
-            circleAdder.AddCircleButtonClicked();
+            activeManager = new CircleAdder(presentation);
+            activeManager.ButtonClicked();
         }
         public void AddMiddleVertexPointClicked()
         {
-            middleVertexCreator.AddMiddleVertexClicked();
+            activeManager = new MiddleVertexCreator(presentation);
+            activeManager.ButtonClicked();
         }
         public void RemoveVertexButtonClicked()
         {
-            vertexRemover.ButtonClicked();
+            activeManager = new VertexRemover(presentation);
+            activeManager.ButtonClicked();
         }
         public void ChangeRadiusClicked()
         {
-            radiusChanger.ButtonClicked();
+            activeManager = new RadiusChanger(presentation);
+            activeManager.ButtonClicked();
         }
         public void MoveShapeButtonClicked()
         {
-            shapeMover.ButtonClicked();
+            activeManager = new ShapeMover(presentation);
+            activeManager.ButtonClicked();
+        }
+        public void EndSpecialAction()
+        {
+            activeManager = null;
         }
     }
 }

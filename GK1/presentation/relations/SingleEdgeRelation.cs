@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GK1
-{ 
-    public abstract class Relation
+{
+    public abstract class SingleEdgeRelation : Relation
     {
-        public abstract void EnforceRelation(Vertex moved, (int X, int Y) newPosition);
+        protected Edge edgeInRelation;
     }
 }

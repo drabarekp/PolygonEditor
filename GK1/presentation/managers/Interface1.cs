@@ -14,5 +14,6 @@ namespace GK1
         public void Clicked(int X, int Y);
         public void MouseUp();
         public void MouseMove(int X, int Y);
+        public void ButtonClicked();
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GK1
+namespace GK1.presentation.relationsManagers
 {
-    abstract class EdgeCircleRelation : Relation
+    class RelationManager
     {
     }
 }

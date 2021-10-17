@@ -21,7 +21,7 @@ namespace GK1
             RespondsToClick = false;
             presentation = p;
         }
-        public void AddMiddleVertexClicked()
+        public void ButtonClicked()
         {
             RespondsToClick = true;
         }

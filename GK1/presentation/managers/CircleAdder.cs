@@ -53,7 +53,7 @@ namespace GK1
         {
             SetRadius(X, Y);
         }
-        public void AddCircleButtonClicked()
+        public void ButtonClicked()
         {
             AddCircle();
         }

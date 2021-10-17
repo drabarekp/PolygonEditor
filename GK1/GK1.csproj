@@ -6,4 +6,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="presentation\relationsManagers\**" />
+    <EmbeddedResource Remove="presentation\relationsManagers\**" />
+    <None Remove="presentation\relationsManagers\**" />
+  </ItemGroup>
+
 </Project>

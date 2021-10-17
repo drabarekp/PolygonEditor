@@ -19,5 +19,11 @@ namespace GK1
             EndsPair.p1.Position = (EndsPair.p1.Position.X + X, EndsPair.p1.Position.Y + Y);
             EndsPair.p2.Position = (EndsPair.p2.Position.X + X, EndsPair.p2.Position.Y + Y);
         }
+        public Vertex GetAnotherEnd(Vertex oneEnd)
+        {
+            if (EndsPair.p1 == oneEnd) return EndsPair.p2;
+            if (EndsPair.p2 == oneEnd) return EndsPair.p1;
+            return null;
+        }
     }
 }

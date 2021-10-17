@@ -39,17 +39,15 @@ namespace GK1
             this.buttonAddPolygon = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAddRelation = new System.Windows.Forms.Button();
             this.buttonRemoveRelation = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonRelEdgeParallelToCircle = new System.Windows.Forms.Button();
             this.buttonSet2EdgesLen = new System.Windows.Forms.Button();
             this.buttonRelSetEdgeLength = new System.Windows.Forms.Button();
             this.buttonSetCircleRadius = new System.Windows.Forms.Button();
+            this.buttonEndSpecial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
             this.buttonsLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,42 +180,13 @@ namespace GK1
             this.button3.Text = "button1";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonAddRelation, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonRemoveRelation, 0, 0);
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1020, 403);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 89);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // buttonAddRelation
-            // 
-            this.buttonAddRelation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddRelation.Location = new System.Drawing.Point(145, 20);
-            this.buttonAddRelation.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonAddRelation.Name = "buttonAddRelation";
-            this.buttonAddRelation.Size = new System.Drawing.Size(85, 49);
-            this.buttonAddRelation.TabIndex = 1;
-            this.buttonAddRelation.Text = "button1";
-            this.buttonAddRelation.UseVisualStyleBackColor = true;
-            // 
             // buttonRemoveRelation
             // 
             this.buttonRemoveRelation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonRemoveRelation.Location = new System.Drawing.Point(20, 20);
+            this.buttonRemoveRelation.Location = new System.Drawing.Point(188, 293);
             this.buttonRemoveRelation.Margin = new System.Windows.Forms.Padding(20);
             this.buttonRemoveRelation.Name = "buttonRemoveRelation";
-            this.buttonRemoveRelation.Size = new System.Drawing.Size(85, 49);
+            this.buttonRemoveRelation.Size = new System.Drawing.Size(128, 52);
             this.buttonRemoveRelation.TabIndex = 0;
             this.buttonRemoveRelation.Text = "button1";
             this.buttonRemoveRelation.UseVisualStyleBackColor = true;
@@ -231,24 +200,25 @@ namespace GK1
             this.tableLayoutPanel2.Controls.Add(this.buttonSet2EdgesLen, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonRelSetEdgeLength, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonSetCircleRadius, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonRemoveRelation, 1, 3);
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1020, 587);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1020, 484);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 192);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(336, 365);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // buttonRelEdgeParallelToCircle
             // 
             this.buttonRelEdgeParallelToCircle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonRelEdgeParallelToCircle.Location = new System.Drawing.Point(145, 116);
+            this.buttonRelEdgeParallelToCircle.Location = new System.Drawing.Point(188, 111);
             this.buttonRelEdgeParallelToCircle.Margin = new System.Windows.Forms.Padding(20);
             this.buttonRelEdgeParallelToCircle.Name = "buttonRelEdgeParallelToCircle";
-            this.buttonRelEdgeParallelToCircle.Size = new System.Drawing.Size(85, 56);
+            this.buttonRelEdgeParallelToCircle.Size = new System.Drawing.Size(128, 51);
             this.buttonRelEdgeParallelToCircle.TabIndex = 3;
             this.buttonRelEdgeParallelToCircle.Text = "button1";
             this.buttonRelEdgeParallelToCircle.UseVisualStyleBackColor = true;
@@ -256,10 +226,10 @@ namespace GK1
             // buttonSet2EdgesLen
             // 
             this.buttonSet2EdgesLen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSet2EdgesLen.Location = new System.Drawing.Point(20, 116);
+            this.buttonSet2EdgesLen.Location = new System.Drawing.Point(20, 111);
             this.buttonSet2EdgesLen.Margin = new System.Windows.Forms.Padding(20);
             this.buttonSet2EdgesLen.Name = "buttonSet2EdgesLen";
-            this.buttonSet2EdgesLen.Size = new System.Drawing.Size(85, 56);
+            this.buttonSet2EdgesLen.Size = new System.Drawing.Size(128, 51);
             this.buttonSet2EdgesLen.TabIndex = 2;
             this.buttonSet2EdgesLen.Text = "button1";
             this.buttonSet2EdgesLen.UseVisualStyleBackColor = true;
@@ -267,39 +237,49 @@ namespace GK1
             // buttonRelSetEdgeLength
             // 
             this.buttonRelSetEdgeLength.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonRelSetEdgeLength.Location = new System.Drawing.Point(20, 20);
+            this.buttonRelSetEdgeLength.Location = new System.Drawing.Point(188, 20);
             this.buttonRelSetEdgeLength.Margin = new System.Windows.Forms.Padding(20);
             this.buttonRelSetEdgeLength.Name = "buttonRelSetEdgeLength";
-            this.buttonRelSetEdgeLength.Size = new System.Drawing.Size(85, 56);
+            this.buttonRelSetEdgeLength.Size = new System.Drawing.Size(128, 51);
             this.buttonRelSetEdgeLength.TabIndex = 1;
-            this.buttonRelSetEdgeLength.Text = "button1";
+            this.buttonRelSetEdgeLength.Text = "Add Constant Length Relation";
             this.buttonRelSetEdgeLength.UseVisualStyleBackColor = true;
+            this.buttonRelSetEdgeLength.Click += new System.EventHandler(this.buttonRelSetEdgeLength_Click);
             // 
             // buttonSetCircleRadius
             // 
             this.buttonSetCircleRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSetCircleRadius.Location = new System.Drawing.Point(145, 20);
+            this.buttonSetCircleRadius.Location = new System.Drawing.Point(20, 20);
             this.buttonSetCircleRadius.Margin = new System.Windows.Forms.Padding(20);
             this.buttonSetCircleRadius.Name = "buttonSetCircleRadius";
-            this.buttonSetCircleRadius.Size = new System.Drawing.Size(85, 56);
+            this.buttonSetCircleRadius.Size = new System.Drawing.Size(128, 51);
             this.buttonSetCircleRadius.TabIndex = 0;
             this.buttonSetCircleRadius.Text = "button1";
             this.buttonSetCircleRadius.UseVisualStyleBackColor = true;
+            // 
+            // buttonEndSpecial
+            // 
+            this.buttonEndSpecial.Location = new System.Drawing.Point(1040, 345);
+            this.buttonEndSpecial.Name = "buttonEndSpecial";
+            this.buttonEndSpecial.Size = new System.Drawing.Size(210, 29);
+            this.buttonEndSpecial.TabIndex = 4;
+            this.buttonEndSpecial.Text = "End Special Action";
+            this.buttonEndSpecial.UseVisualStyleBackColor = true;
+            this.buttonEndSpecial.Click += new System.EventHandler(this.buttonEndSpecial_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 1053);
+            this.ClientSize = new System.Drawing.Size(1382, 1053);
+            this.Controls.Add(this.buttonEndSpecial);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.buttonsLayoutPanel);
             this.Controls.Add(this.mainPicture);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).EndInit();
             this.buttonsLayoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -317,14 +297,13 @@ namespace GK1
         private System.Windows.Forms.Button buttonAddPolygon;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button buttonAddRelation;
         private System.Windows.Forms.Button buttonRemoveRelation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonRelEdgeParallelToCircle;
         private System.Windows.Forms.Button buttonSet2EdgesLen;
         private System.Windows.Forms.Button buttonRelSetEdgeLength;
         private System.Windows.Forms.Button buttonSetCircleRadius;
+        private System.Windows.Forms.Button buttonEndSpecial;
     }
 }
 
