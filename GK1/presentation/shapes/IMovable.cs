@@ -8,6 +8,6 @@ namespace GK1
 {
     interface IMovable
     {
-        public void MoveAVector(int X, int Y);
+        public void MoveAVector(int X, int Y, List<Edge> alreadyVisited = null, List<Vertex> alreadyMovedVertices = null);
     }
 }

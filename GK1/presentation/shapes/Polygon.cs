@@ -39,11 +39,11 @@ namespace GK1
 
             return null;
         }
-        public void MoveAVector(int X, int Y)
+        public void MoveAVector(int X, int Y, List<Edge> alreadyVisited = null, List<Vertex> alreadyMovedVertices = null)
         {
             foreach(var v in Vertices)
             {
-                v.Position = (v.Position.X + X, v.Position.Y + Y);
+                v.MoveAVector(X, Y, alreadyVisited);
             }
         }
         public (Edge edge, Polygon polygon) WasEdgeClose(int X, int Y)

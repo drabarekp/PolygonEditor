@@ -28,6 +28,14 @@ namespace GK1
             presentation = p;
             isAdding = false;
             beingAdded = null;
+
+            if (isAdding)
+            {
+                StopAddingPolygon();
+                return;
+            }
+
+            AddPolygon();
         }
 
         public void Clicked(int X, int Y)
@@ -46,13 +54,7 @@ namespace GK1
 
         public void ButtonClicked()
         {
-            if (isAdding)
-            {
-                StopAddingPolygon();
-                return;
-            }
-
-            AddPolygon();
+            
         }
         private void AddPolygon()
         {

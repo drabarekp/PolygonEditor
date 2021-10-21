@@ -16,7 +16,7 @@ namespace GK1
         }
         public void MoveTo(int mousePositionX, int mousePositionY)
         {
-            beingMoved.Center = (mousePositionX, mousePositionY);
+            beingMoved.MoveTo(mousePositionX, mousePositionY);
         }
     }
 }

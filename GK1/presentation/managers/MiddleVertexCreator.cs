@@ -18,12 +18,12 @@ namespace GK1
 
         public MiddleVertexCreator(Presentation p)
         {
-            RespondsToClick = false;
+            RespondsToClick = true;
             presentation = p;
         }
         public void ButtonClicked()
         {
-            RespondsToClick = true;
+
         }
         public void Clicked(int X, int Y)
         {
@@ -33,6 +33,8 @@ namespace GK1
             var vertex = new Vertex((edge.EndsPair.p1.Position.X + edge.EndsPair.p2.Position.X) / 2, (edge.EndsPair.p1.Position.Y + edge.EndsPair.p2.Position.Y) / 2);
             AddVertexToPolygon(polygon, (Vertex)edge.EndsPair.p1, vertex);
             RespondsToClick = false;
+
+            //here kill
         }
 
         private void AddVertexToPolygon(Polygon p, Vertex prev, Vertex toAdd)

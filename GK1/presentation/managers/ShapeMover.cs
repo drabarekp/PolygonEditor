@@ -18,7 +18,7 @@ namespace GK1
 
         public void ButtonClicked()
         {
-            RespondsToClick = true;
+            
         }
         public void Clicked(int X, int Y)
         {
@@ -63,7 +63,7 @@ namespace GK1
         public ShapeMover(Presentation presentation)
         {
             this.presentation = presentation;
-            RespondsToClick = false;
+            RespondsToClick = true;
             RespondsToMouseUp = false;
             RespondsToMouseMove = false;
             beingMoved = null;

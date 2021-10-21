@@ -88,12 +88,35 @@ namespace GK1
 
         private void buttonRelSetEdgeLength_Click(object sender, EventArgs e)
         {
-
+            manager.SetEdgeLegthClicked();
         }
 
         private void buttonEndSpecial_Click(object sender, EventArgs e)
         {
             manager.EndSpecialAction();
         }
+
+        private void buttonSetCircleRadius_Click(object sender, EventArgs e)
+        {
+            manager.SetCircleRadiusClicked();
+        }
+
+        private void buttonSet2EdgesLen_Click(object sender, EventArgs e)
+        {
+            manager.SetEqalsLengthsClicked();
+        }
+
+        private void buttonRelEdgeParallelToCircle_Click(object sender, EventArgs e)
+        {
+            manager.TangencyRelationClicked();
+        }
+
+        private void buttonSetCircleCenter_Click(object sender, EventArgs e)
+        {
+            manager.SetCircleCenterClicked();
+        }
+
+        
+
     }
 }

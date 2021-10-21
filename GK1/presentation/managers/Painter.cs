@@ -46,6 +46,14 @@ namespace GK1
         }
         private void DrawLine(Edge e, Bitmap b)
         {
+            //temporary
+            if(e.relation != null)
+            {
+                var g = Graphics.FromImage(b);
+                g.DrawRectangle(new Pen(Color.Green), new Rectangle((e.EndsPair.p1.Position.X + e.EndsPair.p2.Position.X) / 2, (e.EndsPair.p1.Position.Y + e.EndsPair.p2.Position.Y) / 2, 10, 10));
+            }
+
+
             int x = e.EndsPair.p1.Position.X;
             int y = e.EndsPair.p1.Position.Y;
             int x2 = e.EndsPair.p2.Position.X;
@@ -73,7 +81,7 @@ namespace GK1
                 {
                     b.SetPixel(x, y, Color.Black);
                 }
-                catch(ArgumentOutOfRangeException ex)
+                catch(ArgumentOutOfRangeException)
                 {
                     //temporary excption catching here
                 }

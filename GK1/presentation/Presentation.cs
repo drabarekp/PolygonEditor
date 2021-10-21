@@ -48,5 +48,14 @@ namespace GK1
             }
             return null;
         }
+        public (Edge, Polygon) EdgeClose(int X, int Y)
+        {
+            foreach(var p in Polygons)
+            {
+                var (edge, polygon) = p.WasEdgeClose(X, Y);
+                if (edge != null) return (edge, polygon);
+            }
+            return (null, null);
+        }
     }
 }

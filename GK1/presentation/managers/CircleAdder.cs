@@ -39,6 +39,8 @@ namespace GK1
             this.presentation = pres;
             isAddingCircle = false;
             wasCenterSet = false;
+
+            AddCircle();
         }
 
         public void Clicked(int X, int Y)
@@ -55,7 +57,7 @@ namespace GK1
         }
         public void ButtonClicked()
         {
-            AddCircle();
+
         }
         private void AddCircle()
         {
@@ -66,12 +68,12 @@ namespace GK1
         }
         private void SetCenter(int X, int Y)
         {
-            beingAdded.Center = (X, Y);
+            beingAdded.MoveTo(X, Y);
             wasCenterSet = true;
         }
         private void SetRadius(int X, int Y)
         {
-            beingAdded.Radius = (int)beingAdded.DistanceFromCenter(X, Y);
+            beingAdded.SetRadius((int)beingAdded.DistanceFromCenter(X, Y));
             
         }
         private void StopAddingCircle()

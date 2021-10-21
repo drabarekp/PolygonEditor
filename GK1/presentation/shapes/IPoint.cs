@@ -8,6 +8,6 @@ namespace GK1
 {
     public interface IPoint
     {
-        public (int X, int Y) Position { get; set; }
+        public (int X, int Y) Position { get; }
     }
 }

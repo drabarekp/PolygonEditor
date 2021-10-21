@@ -65,37 +65,52 @@ namespace GK1
         public void AddPolygonButtonClicked()
         {
             activeManager = new PolygonAdder(presentation);
-            activeManager.ButtonClicked();
-            
         }
         public void AddCircleButtonClicked()
         {
             activeManager = new CircleAdder(presentation);
-            activeManager.ButtonClicked();
         }
         public void AddMiddleVertexPointClicked()
         {
             activeManager = new MiddleVertexCreator(presentation);
-            activeManager.ButtonClicked();
         }
         public void RemoveVertexButtonClicked()
         {
             activeManager = new VertexRemover(presentation);
-            activeManager.ButtonClicked();
         }
         public void ChangeRadiusClicked()
         {
             activeManager = new RadiusChanger(presentation);
-            activeManager.ButtonClicked();
         }
         public void MoveShapeButtonClicked()
         {
             activeManager = new ShapeMover(presentation);
-            activeManager.ButtonClicked();
         }
         public void EndSpecialAction()
         {
-            activeManager = null;
+            activeManager = new PolygonModifier(presentation);
         }
+
+        public void SetEdgeLegthClicked()
+        {
+            activeManager = new ConstantLengthRelationAdder(presentation);
+        }
+        public void SetCircleRadiusClicked()
+        {
+            activeManager = new ConstantRadiusRelationAdder(presentation);
+        }
+        public void SetEqalsLengthsClicked()
+        {
+            activeManager = new EqualLengthsRelationAdder(presentation);
+        }
+        public void TangencyRelationClicked()
+        {
+            activeManager = new TangentRelationAdder(presentation);
+        }
+        public void SetCircleCenterClicked()
+        {
+            activeManager = new SetCenterRelationAdder(presentation);
+        }
+
     }
 }

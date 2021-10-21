@@ -23,7 +23,7 @@ namespace GK1
         public RadiusChanger(Presentation p)
         {
             presentation = p;
-            RespondsToClick = false;
+            RespondsToClick = true;
             RespondsToMouseMove = false;
             beingChanged = null;
         }
@@ -58,12 +58,12 @@ namespace GK1
 
         public void ButtonClicked()
         {
-            RespondsToClick = true;
+            
         }
 
         public void MouseMove(int X, int Y)
         {
-            beingChanged.Radius = (int)beingChanged.DistanceFromCenter(X, Y);
+            beingChanged.SetRadius((int)beingChanged.DistanceFromCenter(X, Y));
         }
 
         public void MouseUp()

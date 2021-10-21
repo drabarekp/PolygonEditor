@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class RelationAdder
+    public class RelationAdder
     {
-        Relation relation;
+        protected Relation relation;
+        protected Presentation presentation;
 
-        public void Add()
+        public RelationAdder(Presentation presentation)
         {
-
+            this.presentation = presentation;
         }
     }
 }

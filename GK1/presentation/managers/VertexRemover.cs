@@ -35,22 +35,13 @@ namespace GK1
         public VertexRemover(Presentation p)
         {
             presentation = p;
-            RespondsToClick = false;
+            RespondsToClick = true;
         }
         public void ButtonClicked()
         {
-            RespondsToClick = true;
+
         }
 
-        /*private (Vertex, Polygon) VertexClicked(int X, int Y)
-        {
-            foreach (var p in presentation.Polygons)
-            {
-                var v = p.VertexClose(X, Y);
-                if (v != null) return (v, p);
-            }
-            return (null, null);
-        }*/
         private void RemoveVertex(Vertex v, Polygon p)
         {
             int indexOfRemoved = p.Vertices.FindIndex(0, p.Vertices.Count, (arg) => { if (arg == v) return true; return false; });

@@ -46,6 +46,7 @@ namespace GK1
             this.buttonRelSetEdgeLength = new System.Windows.Forms.Button();
             this.buttonSetCircleRadius = new System.Windows.Forms.Button();
             this.buttonEndSpecial = new System.Windows.Forms.Button();
+            this.buttonSetCircleCenter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
             this.buttonsLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -188,7 +189,7 @@ namespace GK1
             this.buttonRemoveRelation.Name = "buttonRemoveRelation";
             this.buttonRemoveRelation.Size = new System.Drawing.Size(128, 52);
             this.buttonRemoveRelation.TabIndex = 0;
-            this.buttonRemoveRelation.Text = "button1";
+            this.buttonRemoveRelation.Text = "Remove Relation";
             this.buttonRemoveRelation.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
@@ -201,6 +202,7 @@ namespace GK1
             this.tableLayoutPanel2.Controls.Add(this.buttonRelSetEdgeLength, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonSetCircleRadius, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonRemoveRelation, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSetCircleCenter, 0, 2);
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1020, 484);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -220,8 +222,9 @@ namespace GK1
             this.buttonRelEdgeParallelToCircle.Name = "buttonRelEdgeParallelToCircle";
             this.buttonRelEdgeParallelToCircle.Size = new System.Drawing.Size(128, 51);
             this.buttonRelEdgeParallelToCircle.TabIndex = 3;
-            this.buttonRelEdgeParallelToCircle.Text = "button1";
+            this.buttonRelEdgeParallelToCircle.Text = "Add Tangency Relation";
             this.buttonRelEdgeParallelToCircle.UseVisualStyleBackColor = true;
+            this.buttonRelEdgeParallelToCircle.Click += new System.EventHandler(this.buttonRelEdgeParallelToCircle_Click);
             // 
             // buttonSet2EdgesLen
             // 
@@ -231,8 +234,9 @@ namespace GK1
             this.buttonSet2EdgesLen.Name = "buttonSet2EdgesLen";
             this.buttonSet2EdgesLen.Size = new System.Drawing.Size(128, 51);
             this.buttonSet2EdgesLen.TabIndex = 2;
-            this.buttonSet2EdgesLen.Text = "button1";
+            this.buttonSet2EdgesLen.Text = "Add Equal Lengths Relation";
             this.buttonSet2EdgesLen.UseVisualStyleBackColor = true;
+            this.buttonSet2EdgesLen.Click += new System.EventHandler(this.buttonSet2EdgesLen_Click);
             // 
             // buttonRelSetEdgeLength
             // 
@@ -254,8 +258,9 @@ namespace GK1
             this.buttonSetCircleRadius.Name = "buttonSetCircleRadius";
             this.buttonSetCircleRadius.Size = new System.Drawing.Size(128, 51);
             this.buttonSetCircleRadius.TabIndex = 0;
-            this.buttonSetCircleRadius.Text = "button1";
+            this.buttonSetCircleRadius.Text = "Add Set Circle Radius Relation";
             this.buttonSetCircleRadius.UseVisualStyleBackColor = true;
+            this.buttonSetCircleRadius.Click += new System.EventHandler(this.buttonSetCircleRadius_Click);
             // 
             // buttonEndSpecial
             // 
@@ -266,6 +271,18 @@ namespace GK1
             this.buttonEndSpecial.Text = "End Special Action";
             this.buttonEndSpecial.UseVisualStyleBackColor = true;
             this.buttonEndSpecial.Click += new System.EventHandler(this.buttonEndSpecial_Click);
+            // 
+            // buttonSetCircleCenter
+            // 
+            this.buttonSetCircleCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSetCircleCenter.Location = new System.Drawing.Point(20, 202);
+            this.buttonSetCircleCenter.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonSetCircleCenter.Name = "buttonSetCircleCenter";
+            this.buttonSetCircleCenter.Size = new System.Drawing.Size(128, 51);
+            this.buttonSetCircleCenter.TabIndex = 4;
+            this.buttonSetCircleCenter.Text = "Add Fixed Center Relation";
+            this.buttonSetCircleCenter.UseVisualStyleBackColor = true;
+            this.buttonSetCircleCenter.Click += new System.EventHandler(this.buttonSetCircleCenter_Click);
             // 
             // Form1
             // 
@@ -304,6 +321,7 @@ namespace GK1
         private System.Windows.Forms.Button buttonRelSetEdgeLength;
         private System.Windows.Forms.Button buttonSetCircleRadius;
         private System.Windows.Forms.Button buttonEndSpecial;
+        private System.Windows.Forms.Button buttonSetCircleCenter;
     }
 }
 

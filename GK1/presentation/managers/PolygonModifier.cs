@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GK1
 {
-    class PolygonModifier
+    class PolygonModifier : IPictureActionExecuter
     {
         Vertex beingMoved;
         EdgeMover edgeMover;
@@ -75,7 +75,7 @@ namespace GK1
         public void MoveVertex(int X, int Y)
         {
             if (isMoving)
-                beingMoved.Position = (X, Y);
+                beingMoved.MoveTo(X, Y);
         }
 
         public void StopMovingVertex()
@@ -83,6 +83,11 @@ namespace GK1
             isMoving = false;
             beingMoved = null;
             edgeMover = null;
+        }
+
+        public void ButtonClicked()
+        {
+            throw new NotImplementedException();
         }
     }
 }
