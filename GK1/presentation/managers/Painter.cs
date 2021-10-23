@@ -9,10 +9,13 @@ namespace GK1
 {
     public class PresentationPainter
     {
-
         Color circleCentercolor = Color.DarkRed;
         Color pointColor = Color.Blue;
         Color lineColor = Color.Black;
+        Color fontColorEdge = Color.Blue;
+        Color fontColorCircle = Color.DarkRed;
+        int fontSize = 10;
+        string fontName = "Arial";
         int sizeOfPoint = 3;
 
         public PresentationPainter()
@@ -37,8 +40,22 @@ namespace GK1
         }
         private void DrawCircle(Circle c, Graphics g)
         {
+            const int offsetAdd = 15;
             g.DrawEllipse(new Pen(new SolidBrush(lineColor)), new Rectangle(c.Center.X - c.Radius, c.Center.Y - c.Radius, 2*c.Radius, 2*c.Radius));
             g.FillEllipse(new SolidBrush(circleCentercolor), new Rectangle(c.Center.X - sizeOfPoint, c.Center.Y - sizeOfPoint, 2 * sizeOfPoint, 2 * sizeOfPoint));
+            int offset = 5;
+            if(c.singleCircleRelation != null)
+            {
+                DrawRelationLabel(c.singleCircleRelation, g, fontColorCircle, c.Center.X, c.Center.Y + offset);
+                offset += offsetAdd;
+            }
+            foreach(var relation in c.edgeCircleRelations)
+            {
+
+                DrawRelationLabel(relation, g, fontColorEdge, c.Center.X, c.Center.Y + offset);
+                offset += offsetAdd;
+                
+            }
         }
         private void DrawVertex(IPoint v, Graphics g)
         {
@@ -46,14 +63,6 @@ namespace GK1
         }
         private void DrawLine(Edge e, Bitmap b)
         {
-            //temporary
-            if(e.relation != null)
-            {
-                var g = Graphics.FromImage(b);
-                g.DrawRectangle(new Pen(Color.Green), new Rectangle((e.EndsPair.p1.Position.X + e.EndsPair.p2.Position.X) / 2, (e.EndsPair.p1.Position.Y + e.EndsPair.p2.Position.Y) / 2, 10, 10));
-            }
-
-
             int x = e.EndsPair.p1.Position.X;
             int y = e.EndsPair.p1.Position.Y;
             int x2 = e.EndsPair.p2.Position.X;
@@ -98,6 +107,16 @@ namespace GK1
                     y += dy2;
                 }
             }
+
+            if (e.relation != null)
+            {
+                var g = Graphics.FromImage(b);
+                DrawRelationLabel(e.relation, g, fontColorEdge, (e.EndsPair.p1.Position.X + e.EndsPair.p2.Position.X) / 2, (e.EndsPair.p1.Position.Y + e.EndsPair.p2.Position.Y) / 2);
+            }
+        }
+        private void DrawRelationLabel(Relation relation, Graphics graphics, Color fontColor,  int X, int Y)
+        {
+            graphics.DrawString(relation.GetName(), new Font(fontName, fontSize, FontStyle.Bold), new SolidBrush(fontColor),new PointF(X, Y));
         }
     }
 }

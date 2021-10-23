@@ -41,12 +41,13 @@ namespace GK1
             this.button3 = new System.Windows.Forms.Button();
             this.buttonRemoveRelation = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonParallelRel = new System.Windows.Forms.Button();
             this.buttonRelEdgeParallelToCircle = new System.Windows.Forms.Button();
             this.buttonSet2EdgesLen = new System.Windows.Forms.Button();
             this.buttonRelSetEdgeLength = new System.Windows.Forms.Button();
             this.buttonSetCircleRadius = new System.Windows.Forms.Button();
-            this.buttonEndSpecial = new System.Windows.Forms.Button();
             this.buttonSetCircleCenter = new System.Windows.Forms.Button();
+            this.buttonEndSpecial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
             this.buttonsLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -191,12 +192,14 @@ namespace GK1
             this.buttonRemoveRelation.TabIndex = 0;
             this.buttonRemoveRelation.Text = "Remove Relation";
             this.buttonRemoveRelation.UseVisualStyleBackColor = true;
+            this.buttonRemoveRelation.Click += new System.EventHandler(this.buttonRemoveRelation_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonParallelRel, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonRelEdgeParallelToCircle, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonSet2EdgesLen, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonRelSetEdgeLength, 0, 0);
@@ -213,6 +216,18 @@ namespace GK1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(336, 365);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // buttonParallelRel
+            // 
+            this.buttonParallelRel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonParallelRel.Location = new System.Drawing.Point(188, 202);
+            this.buttonParallelRel.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonParallelRel.Name = "buttonParallelRel";
+            this.buttonParallelRel.Size = new System.Drawing.Size(128, 51);
+            this.buttonParallelRel.TabIndex = 5;
+            this.buttonParallelRel.Text = "Add Parallel Relation";
+            this.buttonParallelRel.UseVisualStyleBackColor = true;
+            this.buttonParallelRel.Click += new System.EventHandler(this.buttonParallelRel_Click);
             // 
             // buttonRelEdgeParallelToCircle
             // 
@@ -262,16 +277,6 @@ namespace GK1
             this.buttonSetCircleRadius.UseVisualStyleBackColor = true;
             this.buttonSetCircleRadius.Click += new System.EventHandler(this.buttonSetCircleRadius_Click);
             // 
-            // buttonEndSpecial
-            // 
-            this.buttonEndSpecial.Location = new System.Drawing.Point(1040, 345);
-            this.buttonEndSpecial.Name = "buttonEndSpecial";
-            this.buttonEndSpecial.Size = new System.Drawing.Size(210, 29);
-            this.buttonEndSpecial.TabIndex = 4;
-            this.buttonEndSpecial.Text = "End Special Action";
-            this.buttonEndSpecial.UseVisualStyleBackColor = true;
-            this.buttonEndSpecial.Click += new System.EventHandler(this.buttonEndSpecial_Click);
-            // 
             // buttonSetCircleCenter
             // 
             this.buttonSetCircleCenter.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -283,6 +288,16 @@ namespace GK1
             this.buttonSetCircleCenter.Text = "Add Fixed Center Relation";
             this.buttonSetCircleCenter.UseVisualStyleBackColor = true;
             this.buttonSetCircleCenter.Click += new System.EventHandler(this.buttonSetCircleCenter_Click);
+            // 
+            // buttonEndSpecial
+            // 
+            this.buttonEndSpecial.Location = new System.Drawing.Point(1040, 345);
+            this.buttonEndSpecial.Name = "buttonEndSpecial";
+            this.buttonEndSpecial.Size = new System.Drawing.Size(210, 29);
+            this.buttonEndSpecial.TabIndex = 4;
+            this.buttonEndSpecial.Text = "End Special Action";
+            this.buttonEndSpecial.UseVisualStyleBackColor = true;
+            this.buttonEndSpecial.Click += new System.EventHandler(this.buttonEndSpecial_Click);
             // 
             // Form1
             // 
@@ -322,6 +337,7 @@ namespace GK1
         private System.Windows.Forms.Button buttonSetCircleRadius;
         private System.Windows.Forms.Button buttonEndSpecial;
         private System.Windows.Forms.Button buttonSetCircleCenter;
+        private System.Windows.Forms.Button buttonParallelRel;
     }
 }
 

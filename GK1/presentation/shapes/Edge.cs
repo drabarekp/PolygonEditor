@@ -32,8 +32,8 @@ namespace GK1
         public Relation relation;
         public void MoveAVector(int X, int Y, List<Edge> alreadyVisited = null, List<Vertex> alreadyMovedVertices = null)
         {
-            EndsPair.p1.MoveAVector(X, Y);
-            EndsPair.p2.MoveAVector(X, Y);
+            EndsPair.p1.MoveAVector(X, Y, alreadyVisited, alreadyMovedVertices);
+            EndsPair.p2.MoveAVector(X, Y, alreadyVisited, alreadyMovedVertices);
         }
         public Vertex GetAnotherEnd(Vertex oneEnd)
         {

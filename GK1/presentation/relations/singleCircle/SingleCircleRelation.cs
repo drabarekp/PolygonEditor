@@ -14,5 +14,9 @@ namespace GK1
         {
             return circle != null;
         }
+        public override void DisposeSelf()
+        {
+            circle.singleCircleRelation = null;
+        }
     }
 }

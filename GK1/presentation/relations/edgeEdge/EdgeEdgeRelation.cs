@@ -31,5 +31,10 @@ namespace GK1
             if (edges.e2 == edge) return edges.e1;
             return null;
         }
+        public override void DisposeSelf()
+        {
+            edges.e1.relation = null;
+            edges.e2.relation = null;
+        }
     }
 }

@@ -111,6 +111,13 @@ namespace GK1
         {
             activeManager = new SetCenterRelationAdder(presentation);
         }
-
+        public void ParallelRelationClicked()
+        {
+            activeManager = new ParallelRelationAdder(presentation);
+        }
+        public void RemoveRelationClicked()
+        {
+            activeManager = new RelationRemover(presentation);
+        }
     }
 }

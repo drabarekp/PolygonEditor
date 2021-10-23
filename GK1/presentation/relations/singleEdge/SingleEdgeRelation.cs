@@ -18,5 +18,9 @@ namespace GK1
         {
             return edgeInRelation != null;
         }
+        public override void DisposeSelf()
+        {
+            edgeInRelation.relation = null;
+        }
     }
 }

@@ -116,7 +116,14 @@ namespace GK1
             manager.SetCircleCenterClicked();
         }
 
-        
+        private void buttonParallelRel_Click(object sender, EventArgs e)
+        {
+            manager.ParallelRelationClicked();
+        }
 
+        private void buttonRemoveRelation_Click(object sender, EventArgs e)
+        {
+            manager.RemoveRelationClicked();
+        }
     }
 }

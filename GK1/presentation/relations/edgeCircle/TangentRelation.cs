@@ -8,13 +8,17 @@ namespace GK1
 {
     class TangentRelation : EdgeCircleRelation
     {
+        public TangentRelation()
+        {
+            id = numberOfRelations++;
+        }
         public void InitializeRelation(List<Edge> alreadyVisited = null, List<Vertex> alreadyMovedVertices = null)
         {
             double distanceCircleToLine = edge.DistanceToPoint(circle.Center);
             if (alreadyVisited == null) alreadyVisited = new List<Edge>();
             //if radius can't be changed:
-            if (circle.singleCircleRelation is ConstantRadiusRelation)
-            {
+            /*if (circle.singleCircleRelation is ConstantRadiusRelation)
+            {*/
                 int epsilon = 2;
                 
                 double lengthToMoveCircle = circle.Radius - distanceCircleToLine;
@@ -26,20 +30,24 @@ namespace GK1
                 var tmp1 = edge.DistanceToPoint(possibleNewPosition1);
                 var tmp2 = edge.DistanceToPoint(possibleNewPosition2);
 
+                alreadyVisited.Add(edge);
+
                 if (edge.DistanceToPoint(possibleNewPosition1) - circle.Radius < epsilon)
                 {
-                    circle.MoveTo(possibleNewPosition1.X, possibleNewPosition1.Y, alreadyVisited, alreadyMovedVertices);
+                    //circle.MoveTo(possibleNewPosition1.X, possibleNewPosition1.Y, alreadyVisited, alreadyMovedVertices);
+                    edge.MoveAVector(-(int)(edge.UnitVectorPerpendicular.X * lengthToMoveCircle), -(int)(edge.UnitVectorPerpendicular.Y * lengthToMoveCircle), alreadyVisited);
                 }
                 else if (edge.DistanceToPoint(possibleNewPosition2) - circle.Radius < epsilon)
                 {
-                    circle.MoveTo(possibleNewPosition2.X, possibleNewPosition2.Y, alreadyVisited, alreadyMovedVertices);
+                    //circle.MoveTo(possibleNewPosition2.X, possibleNewPosition2.Y, alreadyVisited, alreadyMovedVertices);
+                    edge.MoveAVector((int)(edge.UnitVectorPerpendicular.X * lengthToMoveCircle), (int)(edge.UnitVectorPerpendicular.Y * lengthToMoveCircle), alreadyVisited);
                 }
-            }
+            //}
             //if radius can be changed
-            else
+            /*else
             {
                 circle.SetRadius((int)distanceCircleToLine, alreadyVisited);
-            }
+            }*/
         }
         public override void EnforceRelation(Vertex moved, Edge thisEdge, (int X, int Y) newPosition, List<Edge> alreadyMoved, List<Vertex> alreadyMovedVertices, Circle circle = null)
         {
@@ -47,6 +55,10 @@ namespace GK1
             alreadyMoved.Add(edge);
 
             InitializeRelation(alreadyMoved, alreadyMovedVertices);
+        }
+        public override string GetName()
+        {
+            return "T" + id;
         }
     }
 }

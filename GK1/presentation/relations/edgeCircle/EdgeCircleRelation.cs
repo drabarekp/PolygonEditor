@@ -15,5 +15,10 @@ namespace GK1
         {
             return edge != null && circle != null;
         }
+        public override void DisposeSelf()
+        {
+            edge.relation = null;
+            circle.edgeCircleRelations.Remove(this);
+        }
     }
 }

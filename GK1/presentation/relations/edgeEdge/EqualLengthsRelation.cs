@@ -8,6 +8,10 @@ namespace GK1
 {
     class EqualLengthsRelation : EdgeEdgeRelation
     {
+        public EqualLengthsRelation()
+        {
+            id = numberOfRelations++;
+        }
         public void InitializeRelation()
         {
             var p1 = edges.e2.EndsPair.p1;
@@ -25,6 +29,10 @@ namespace GK1
 
             p2.MoveTo((int)(p1.Position.X + otherEdgeInRelation.UnitVector12.X * thisEdge.Length), (int)(p1.Position.Y + otherEdgeInRelation.UnitVector12.Y * thisEdge.Length), alreadyMoved, alreadyMovedVertices);
             
+        }
+        public override string GetName()
+        {
+            return "EL" + id;
         }
     }
 }
