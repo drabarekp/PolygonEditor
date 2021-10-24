@@ -3,6 +3,7 @@ Dodawanie wielokątów można zakończyć wciśnięciem przycisku "End Special A
 Przesuwanie obiektów (wierzchołków, krawędzi, wielokątów) jest realizowane za pomocą drag-and-drop.
 Zmiana promienia okręgu jest realizowana poprzez kliknięcie na środek okręgu, a następnie kliknięcie drugi raz gdy promień ma przestać być edytowany.
 		By zmodyfikować okrąg trzeba kliknąć/nacisnąć w jego środek.
+Gdy nie trafi się w np. okrąg, który chce się przesunąć  trzeba kliknąć przycisk jeszcze raz.
 
 Wygląd.
 Relacje są opisane za pomocą sygnatury: <kod relacji> + <unikatowe id relacji>
