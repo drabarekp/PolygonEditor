@@ -10,6 +10,8 @@ namespace GK1
     {
         public List<Polygon> Polygons { get; set; }
         public List<Circle> Circles { get; set; }
+
+        //Size - (width x height) of view of the simulation
         public (int X, int Y) Size { get; set; }
 
         public Presentation(string str)
@@ -18,6 +20,42 @@ namespace GK1
             Circles = new List<Circle>();
             Size = (1000, 1000);
 
+            InitializeDefaultSetup();
+        }
+        public (Vertex, Polygon) PolygonClose(int X, int Y)
+        {
+            foreach (var p in Polygons)
+            {
+                var v = p.VertexClose(X, Y);
+                if (v != null) return (v, p);
+            }
+            return (null, null);
+        }
+        public Circle CircleClose(int X, int Y)
+        {
+            const int close = 10;
+            foreach (var c in Circles)
+            {
+                if (c.DistanceFromCenter(X, Y) < close)
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
+        
+        //returns edge and its polygon near the point (X, Y)
+        public (Edge, Polygon) EdgeClose(int X, int Y)
+        {
+            foreach(var p in Polygons)
+            {
+                var (edge, polygon) = p.WasEdgeClose(X, Y);
+                if (edge != null) return (edge, polygon);
+            }
+            return (null, null);
+        }
+        public void InitializeDefaultSetup()
+        {
             var p1 = new Polygon();
             var p2 = new Polygon();
             var c1 = new Circle((500, 500), 50);
@@ -52,41 +90,10 @@ namespace GK1
             eqrel.edges.e2.relation = eqrel;
             eqrel.InitializeRelation();
 
-
             Polygons.Add(p1);
             Polygons.Add(p2);
             Circles.Add(c1);
             Circles.Add(c2);
-        }
-        public (Vertex, Polygon) PolygonClose(int X, int Y)
-        {
-            foreach (var p in Polygons)
-            {
-                var v = p.VertexClose(X, Y);
-                if (v != null) return (v, p);
-            }
-            return (null, null);
-        }
-        public Circle CircleClose(int X, int Y)
-        {
-            const int close = 10;
-            foreach (var c in Circles)
-            {
-                if (c.DistanceFromCenter(X, Y) < close)
-                {
-                    return c;
-                }
-            }
-            return null;
-        }
-        public (Edge, Polygon) EdgeClose(int X, int Y)
-        {
-            foreach(var p in Polygons)
-            {
-                var (edge, polygon) = p.WasEdgeClose(X, Y);
-                if (edge != null) return (edge, polygon);
-            }
-            return (null, null);
         }
     }
 }

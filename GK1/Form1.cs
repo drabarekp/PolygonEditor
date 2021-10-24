@@ -12,8 +12,11 @@ namespace GK1
 {
     public partial class Form1 : Form
     {
+        // Presentation - stores the state of the simulation, info about shapes' position etc.
         public Presentation Presentation { get; set; }
+        // painter - responsible for painting graphic images
         private PresentationPainter painter;
+        // manager - takes care of mouse actions, passes them to special manager objects
         private PresentationManager manager;
         
         
@@ -39,10 +42,7 @@ namespace GK1
             manager.AddPolygonButtonClicked();
         }
 
-        private void mainPicture_MouseClick_1(object sender, MouseEventArgs e)
-        {
-
-        }
+        private void mainPicture_MouseClick_1(object sender, MouseEventArgs e) { }
 
         private void mainPicture_MouseDown(object sender, MouseEventArgs e)
         {
