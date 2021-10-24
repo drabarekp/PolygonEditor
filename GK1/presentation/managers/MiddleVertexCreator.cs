@@ -62,6 +62,9 @@ namespace GK1
             var ePrev = new Edge(prev, toAdd);
             var eNext = new Edge(toAdd, next);
 
+            if (prev.AdjacentEdges.next.relation != null) prev.AdjacentEdges.next.relation.DisposeSelf();
+            if (next.AdjacentEdges.prev.relation != null) next.AdjacentEdges.prev.relation.DisposeSelf();
+
             prev.AdjacentEdges = (prev.AdjacentEdges.prev, ePrev);
             toAdd.AdjacentEdges = (ePrev, eNext);
             next.AdjacentEdges = (eNext, next.AdjacentEdges.next);

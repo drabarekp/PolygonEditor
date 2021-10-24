@@ -41,6 +41,10 @@ namespace GK1
         }
         public void MoveAVector(int X, int Y, List<Edge> alreadyVisited = null, List<Vertex> alreadyMovedVertices = null)
         {
+            if (alreadyVisited == null)
+            {
+                alreadyVisited = new List<Edge>();
+            }
             foreach(var v in Vertices)
             {
                 v.MoveAVector(X, Y, alreadyVisited);

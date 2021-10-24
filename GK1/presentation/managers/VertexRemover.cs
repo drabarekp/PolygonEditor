@@ -52,6 +52,9 @@ namespace GK1
             var next = p.Vertices[indexOfNext];
             var e = new Edge(prev, next);
 
+            if (prev.AdjacentEdges.next.relation != null) prev.AdjacentEdges.next.relation.DisposeSelf();
+            if (next.AdjacentEdges.prev.relation != null) next.AdjacentEdges.prev.relation.DisposeSelf();
+
             prev.AdjacentEdges = (prev.AdjacentEdges.prev, e);
             next.AdjacentEdges = (e, next.AdjacentEdges.next);
             p.Vertices.Remove(v);
