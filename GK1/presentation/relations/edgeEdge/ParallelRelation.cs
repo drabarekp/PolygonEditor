@@ -19,12 +19,16 @@ namespace GK1
             alreadyMoved.Add(thisEdge);
 
             var otherEdge  = GetOtherEdge(thisEdge);
+            alreadyMoved.Add(otherEdge);
+
             (double X, double Y) direction;
             double dotProduct1 = thisEdge.UnitVector12.X * otherEdge.UnitVector12.X + thisEdge.UnitVector12.Y * otherEdge.UnitVector12.Y;
             double dotProduct2 = thisEdge.UnitVector21.X * otherEdge.UnitVector12.X + thisEdge.UnitVector21.Y * otherEdge.UnitVector12.Y;
             if (dotProduct1 > dotProduct2) direction = thisEdge.UnitVector12;
             else direction = thisEdge.UnitVector21;
-            otherEdge.EndsPair.p2.MoveTo((int)(otherEdge.EndsPair.p1.Position.X + direction.X * otherEdge.Length), (int)(otherEdge.EndsPair.p1.Position.Y + direction.Y * otherEdge.Length), alreadyMoved, alreadyMovedVertices);
+
+            // 0.5 is added to the coordinates to eliminate of rounding errors
+            otherEdge.EndsPair.p2.MoveTo((int)(otherEdge.EndsPair.p1.Position.X + direction.X * otherEdge.Length + 0.5), (int)(otherEdge.EndsPair.p1.Position.Y + direction.Y * otherEdge.Length + 0.5), alreadyMoved, alreadyMovedVertices);
         }
         public void InitializeRelation()
         {

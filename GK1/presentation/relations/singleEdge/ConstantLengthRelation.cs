@@ -23,11 +23,9 @@ namespace GK1
 
             double initialLength = thisEdge.GetAnotherEnd(moved).Distance(oldPosition.X, oldPosition.Y);
             (double X, double Y) unitvector = ((thisEdge.GetAnotherEnd(moved).Position.X - moved.Position.X)/thisEdge.Length, (thisEdge.GetAnotherEnd(moved).Position.Y - moved.Position.Y)/ thisEdge.Length);
-            thisEdge.GetAnotherEnd(moved).MoveTo(moved.Position.X + (int)(unitvector.X * initialLength), moved.Position.Y + (int)(unitvector.Y * initialLength));
-
-            /*(int X, int Y) vector = (moved.Position.X - oldPosition.X, moved.Position.Y - oldPosition.Y);
-            thisEdge.GetAnotherEnd(moved).MoveAVector(vector.X, vector.Y, alreadyMoved, alreadyMovedVertices);*/
-
+            
+            // 0.5 is added to coordinates to eliminate rounding errors
+            thisEdge.GetAnotherEnd(moved).MoveTo((int)(moved.Position.X + (unitvector.X * initialLength) + 0.5), (int)(moved.Position.Y + (unitvector.Y * initialLength) + 0.5), alreadyMoved, alreadyMovedVertices);
         }
         public override string GetName()
         {

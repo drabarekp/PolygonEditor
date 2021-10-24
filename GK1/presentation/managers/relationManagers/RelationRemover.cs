@@ -28,13 +28,13 @@ namespace GK1
         {
             Edge edge;
             (edge, _) = presentation.EdgeClose(X, Y);
-            if(edge != null)
+            if(edge != null && edge.relation != null)
             {
                 edge.relation.DisposeSelf();
                 return;
             }
             var circle = presentation.CircleClose(X, Y);
-            if(circle != null)
+            if(circle != null && circle.singleCircleRelation != null)
             {
                 circle.singleCircleRelation.DisposeSelf();
                 return;

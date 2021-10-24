@@ -22,12 +22,15 @@ namespace GK1
         {
             if (alreadyMoved.Contains(thisEdge)) return;
             alreadyMoved.Add(thisEdge);
+            
 
             var otherEdgeInRelation = GetOtherEdge(thisEdge);
+            alreadyMoved.Add(otherEdgeInRelation);
             var p1 = otherEdgeInRelation.EndsPair.p1;
             var p2 = otherEdgeInRelation.EndsPair.p2;
 
-            p2.MoveTo((int)(p1.Position.X + otherEdgeInRelation.UnitVector12.X * thisEdge.Length), (int)(p1.Position.Y + otherEdgeInRelation.UnitVector12.Y * thisEdge.Length), alreadyMoved, alreadyMovedVertices);
+            // 0.5 is added to the coordinates to eliminate of rounding errors
+            p2.MoveTo((int)(p1.Position.X + otherEdgeInRelation.UnitVector12.X * thisEdge.Length + 0.5), (int)(p1.Position.Y + otherEdgeInRelation.UnitVector12.Y * thisEdge.Length + 0.5), alreadyMoved, alreadyMovedVertices);
             
         }
         public override string GetName()

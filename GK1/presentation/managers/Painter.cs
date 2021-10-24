@@ -59,7 +59,11 @@ namespace GK1
         }
         private void DrawVertex(IPoint v, Graphics g)
         {
-            g.FillEllipse(new SolidBrush(pointColor), new Rectangle(v.Position.X - sizeOfPoint, v.Position.Y - sizeOfPoint, 2 * sizeOfPoint, 2 * sizeOfPoint));
+            try
+            {
+                g.FillEllipse(new SolidBrush(pointColor), new Rectangle(v.Position.X - sizeOfPoint, v.Position.Y - sizeOfPoint, 2 * sizeOfPoint, 2 * sizeOfPoint));
+            }
+            catch (OverflowException) { }
         }
         private void DrawLine(Edge e, Bitmap b)
         {
