@@ -1,0 +1,25 @@
+Instrukcja.
+Dodawanie wielokątów można zakończyć wciśnięciem przycisku "End Special Action".
+Przesuwanie obiektów (wierzchołków, krawędzi, wielokątów) jest realizowane za pomocą drag-and-drop.
+Zmiana promienia okręgu jest realizowana poprzez kliknięcie na środek okręgu, a następnie kliknięcie drugi raz gdy promień ma przestać być edytowany.
+		By zmodyfikować okrąg trzeba kliknąć/nacisnąć w jego środek
+
+Wygląd.
+Relacje są opisane za pomocą sygnatury: <kod relacji> + <unikatowe id relacji>
+Kody relacji:
+T (Tangent) - styczność
+EL (Equal Lengths) - równa długość krawędzi
+PR (Parallel Relation - równoległość krawędzi
+CR (Constant Radius) - stały promień okręgu
+SC (Set Center) - ustalony środek okręgu
+CL (Constant Length) - stała długość krawędzi
+
+Algorytm relacji.
+Założenia:
+1. Każdą krawędź przy wprowadzaniu zmian wywołanych przez relację można zmodyfikować raz
+2. Każdy wierzchołek przy wprowadzaniu zmian wywołanych przez relację można zmodyfikować raz
+3. Modyfikacje krawędzi nie powinny modyfikować okręgów.
+
+Modyfikacja krawędzi pociąga za sobą sprawdzenie relacji krawędzi do niej przyległych (o ile te przyległe krawędzi są w relacji).
+Styczność - krawędź jest przesuwana równolegle na odległość jednego promienia od środka okręgu.
+Równoległość - jeden z wierzchołków drugiej krawędzi jest przesuwany w kierunku wektora jednostkowego pierwszej krawędzi o długość drugiej krawędzi
